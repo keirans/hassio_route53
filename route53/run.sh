@@ -117,7 +117,7 @@ do
         ;;
 
         '"NOERROR"')
-            echo "$(date) INFO : Got NOERROR (${RESPONSECODE}) - Continue to ensure IP address is correct in record"
+            debug_message "Got NOERROR (${RESPONSECODE}) - Continue to ensure IP address is correct in record"
             evaluate_record
         ;;
 

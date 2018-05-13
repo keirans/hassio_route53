@@ -1,0 +1,5 @@
+{
+  "name": "Route53 Home Assistant Add-on",
+  "url": "https://github.com/keirans/hassio_route53",
+  "maintainer": "Keiran Sweet <keiran@gmail.com>"
+}

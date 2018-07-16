@@ -72,11 +72,18 @@ function evaluate_record {
 
     export RECORDADDRESS=$(aws route53  test-dns-answer --hosted-zone-id ${ZONEID} --record-type A --record-name ${RECORDNAME} | jq '.RecordData[0]' | sed -e 's/"//g')
 
-    if [ $IPADDRESS == $RECORDADDRESS ]; then
+    if [[  $IPADDRESS =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
+
+      debug_message "Received a valid IP address from the remote service - OK to proceed checking values"
+
+      if [ $IPADDRESS == $RECORDADDRESS ]; then
         debug_message "The Addresses match - nothing to do ($IPADDRESS is the same as $RECORDADDRESS)"
-    else
+      else
         echo "$(date) INFO : The Addresses don't match ($IPADDRESS is not the same as $RECORDADDRESS) - Updating record"
         update_record
+      fi
+    else
+      echo "$(date) WARN : The IP Address string received from the remote service was not a valid IP address (${IPADDRESS})- unable to check and update the DNS record"
     fi
 
 }

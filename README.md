@@ -1,3 +1,13 @@
+# Deprecated - Functionality now part of Home Assistant !
+
+Please be aware that this Add-on is deprecated because Route53 dynamic DNS support is now part of Home Assistant 0.81+
+
+You can check the documentation to get quickly up and running below;
+
+* [Home Assistant - Route53 component - Official documentation](https://www.home-assistant.io/components/route53/)
+
+I am happy to take PR's to this add-on, however I encourage you to use the native functionality.
+
 # AWS Route53 Dynamic DNS Add-on for Hass.io (Home Assistant)
 
 ## Introduction
